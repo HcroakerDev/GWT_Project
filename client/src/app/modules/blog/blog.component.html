@@ -1,9 +1,10 @@
 <div class="blog-container">
     <!-- Add post button -->
     <button class="add-post-btn" (click)="openModal()" mat-raised-button color="primary" >Add Post</button>
-
+    
     <!-- Posts list -->
     <div class="posts">
+        <p *ngIf="total==0">No Posts Added</p>
         <app-posts-list [posts]="posts"></app-posts-list>
     </div>
 
