@@ -1,7 +1,9 @@
 # GWT_Project
+A trial project for GWT. Which consist of a rest-api and an angular app running on a node server.
 
 ## Prerequisites
-Before starting the server, the database must be setup. The script to create the database table can be found under `/server/db_scripts/createTable.sql`.
+Before starting the server, the database must be setup. The script to create the database table can be found under
+`/server/db_scripts/createTable.sql`.
 
 The db connection can be found within the `/server/db_scripts/connection.js` which can be used to create the correct connection.
 
@@ -13,7 +15,7 @@ You can also use the `/server/db_scripts/Export.sql` to create the table and imp
 3. `$ npm run prod`
 
 ## What was completed
-All tasks were completed, however the only tasks which is thought could have been done better was:
+**All tasks were completed**, however the only tasks which I thought could have been done better was:
 - Preventing SQL injections: Could have done better custom sanitization. Also could have used a library like sequalize which would help prevent injections.
 
 ## Server Architecture
@@ -50,3 +52,25 @@ The server consisted of a node.js rest api using express.
   body: string,
   subjectURL?: string
 }
+
+## Client Architecture
+
+The project was split into three catagories:
+- Core: Contains Services and other core functionality
+- Modules: Contains lazy loaded modules that represent pages
+- Shared: Contains Shared components/modules/models/pipes
+
+### Modules
+
+#### Blog Module
+A page that shows the latest paginated blog posts.
+
+*Components:*
+- Post-List-Component: List of posts
+- Post-Item-Component: A post item
+
+### Adding a post
+The post adding was controlled using a modal. Within this was a reactive form built using the form build to achieve client side validation.
+
+### UI Library
+Angular material was used as the UI library.
