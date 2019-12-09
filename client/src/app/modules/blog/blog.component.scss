@@ -1,0 +1,13 @@
+.blog-container{
+    padding: 20px;
+    
+    .add-post-btn{
+        width: 100%;
+        padding: 8px;
+        text-transform: uppercase;
+    }
+
+    .posts{
+        min-height: calc(100vh - 150px);
+    }
+}

@@ -1,0 +1,21 @@
+<article class="post-container">
+
+    <!-- Card UI -->
+    <mat-card>
+        <div class="header">
+            <!-- Flex title -->
+            <div class="title">
+                <h1 class="title-text">{{ post.title }}</h1>
+                <div class="category">{{ post.category }}</div>
+            </div>
+            <!-- Date Posted -->
+            <p class="subtitle">{{ post.posted | date: 'medium' }}</p>
+        </div>
+        <!-- Optional Website URL in Iframe with safeURL pipe -->
+        <iframe class="website" *ngIf="post.subjectURL" [src]="post.subjectURL | safeURL" frameborder="0"></iframe>
+        <!-- Body Content -->
+        <div class="content">
+            <p>{{post.body}}</p>
+        </div>
+    </mat-card>
+</article>

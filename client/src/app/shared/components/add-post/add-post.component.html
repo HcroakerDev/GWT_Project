@@ -1,0 +1,64 @@
+<div class="add-post-container">
+    <form action="." [formGroup]="addPostForm" (submit)="submitForm()">
+        <h1 mat-dialog-title>Add Post</h1>
+        <div mat-dialog-content>
+            
+            <!-- Title Input -->
+            <mat-form-field class="full-width" >
+                <input matInput placeholder="Title *" formControlName="title" autocomplete="off">
+                <mat-error *ngIf="addPostForm.controls.title.hasError('required')">
+                    Title is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <!-- Catagories dropdown selection -->
+            <mat-form-field class="full-width">
+                <mat-label>Category *</mat-label>
+                <mat-select formControlName="category">
+                    <mat-option *ngFor="let category of categories" [value]="category">
+                    {{category}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="addPostForm.controls.category.hasError('required')">
+                    Category is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <!-- URL Input -->
+            <mat-form-field class="full-width" >
+                <input type="url" matInput placeholder="Subject Url" formControlName="subjectURL" autocomplete="off">
+                <mat-error *ngIf="addPostForm.controls.subjectURL.hasError('pattern')">
+                    You must enter a valid <strong>url</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <!-- Create Text Box that autosizes -->
+            <mat-form-field class="full-width">
+                <textarea 
+                    matInput
+                    cdkTextareaAutosize
+                    #autosize="cdkTextareaAutosize"
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="10"
+                    placeholder="Body *"
+                    formControlName="body"
+                    autocomplete="off">
+                </textarea>
+                <mat-error *ngIf="addPostForm.controls.body.hasError('required')">
+                    Body is <strong>required</strong>
+                </mat-error>
+                <mat-error *ngIf="addPostForm.controls.body.hasError('maxlength')">
+                        Body is <strong>too long</strong>
+                    </mat-error>
+                <mat-hint align="end">{{ addPostForm.value.body.length }} / {{ bodyMaxLength }}</mat-hint>
+            </mat-form-field>
+        </div>
+
+        <!-- Submission and Cancel -->
+        <div mat-dialog-actions>
+            <button type="submit" [disabled]="!addPostForm.valid">Submit</button>
+            <button type="button" mat-dialog-close>Cancel</button>
+        </div>
+    </form>  
+        
+</div>

@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+// Overidding some material styles, would generally put these in a seperate file and import for organisation
+.mat-option-text, .mat-select-value{ text-transform: capitalize !important; }
+.mat-card .mat-card-header .mat-card-header-text{
+    margin: 0px !important;
+}
