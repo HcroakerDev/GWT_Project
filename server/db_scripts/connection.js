@@ -1,10 +1,9 @@
-var mysql = require('mysql');
-
 /**
  * A module used to create a mysql database connection
  * 
  * @exports connection
  */
+var mysql = require('mysql');
 
 //local mysql db connection
 var connection = mysql.createConnection({

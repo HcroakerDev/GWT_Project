@@ -1,14 +1,14 @@
-const express = require('express');
-const { body, query } = require('express-validator');
-var pagination = require('./paginationMiddleware.js');
-const { getPosts, addPost } = require('../controllers/postsController');
-var router = express.Router();
-
 /**
  * A module to hold the posts routes
  * 
  * @exports router
  */
+
+const express = require('express');
+const { body, query } = require('express-validator');
+var pagination = require('./paginationMiddleware.js');
+const { getPosts, addPost } = require('../controllers/postsController');
+var router = express.Router();
 
 /* 
 - Posts route folder
@@ -25,11 +25,11 @@ router.route('/')
     "query": "SELECT * FROM posts ORDER BY posted DESC"
 }), getPosts)
 .post(
-    // Ensure valid params
+    // Ensure valid params and 
     body('title', 'Empty Title').trim().escape().exists({checkFalsy: true, checkNull: true}),
     body('body', 'Empty Body').trim().escape().exists({checkFalsy: true, checkNull: true}).isLength({max: 1000}).withMessage("Body Too Long"),
     body('category', 'Empty Category').trim().escape().exists({checkFalsy: true, checkNull: true}),
-    body('subjectURL', 'Incorrect URL').optional().isURL({require_valid_protocol: true}),
+    body('subjectURL', 'Incorrect URL').optional({checkFalsy: true, checkNull: true}).isURL({require_valid_protocol: true}),
     addPost)
 
 module.exports = router;

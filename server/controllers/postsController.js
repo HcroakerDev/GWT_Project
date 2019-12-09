@@ -1,11 +1,10 @@
-var conn = require('../db_scripts/connection');
-const { validationResult } = require('express-validator');
-
 /**
  * A module used to control the functionality of posts
  * @exports getPosts
  * @exports addPOsts 
  */
+var conn = require('../db_scripts/connection');
+const { validationResult } = require('express-validator');
 
 /**
  * A function used to get posts, uses the pagination middleware

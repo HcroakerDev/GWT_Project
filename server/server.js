@@ -1,3 +1,6 @@
+/**
+ * Server entry module
+ */
 const express = require('express');
 const routes = require('./routes/index.js');
 const path = require('path');
