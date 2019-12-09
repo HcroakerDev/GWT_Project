@@ -4,6 +4,12 @@ var pagination = require('./paginationMiddleware.js');
 const { getPosts, addPost } = require('../controllers/postsController');
 var router = express.Router();
 
+/**
+ * A module to hold the posts routes
+ * 
+ * @exports router
+ */
+
 /* 
 - Posts route folder
 - Use pagination as a route-level middleware
@@ -11,6 +17,7 @@ var router = express.Router();
 */
 router.route('/')
 .get(
+    // Ensure valid parameters using express validator
     query('page', 'Invalid Page Parameter').trim().escape().exists().isInt(),
     query('limit', 'Invalid Limit Parameter').trim().escape().exists().isInt(),
     pagination({
@@ -18,6 +25,7 @@ router.route('/')
     "query": "SELECT * FROM posts ORDER BY posted DESC"
 }), getPosts)
 .post(
+    // Ensure valid params
     body('title', 'Empty Title').trim().escape().exists({checkFalsy: true, checkNull: true}),
     body('body', 'Empty Body').trim().escape().exists({checkFalsy: true, checkNull: true}).isLength({max: 1000}).withMessage("Body Too Long"),
     body('category', 'Empty Category').trim().escape().exists({checkFalsy: true, checkNull: true}),
