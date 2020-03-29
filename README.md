@@ -1,5 +1,5 @@
 # Angular/Node App
-A trial project for GWT. Which consist of a rest-api and an angular app running on a node server.
+A simple angular and node full stack app. Which consist of a rest-api and an angular app running on a node server.
 
 ## Prerequisites
 Before starting the server, the database must be setup. The script to create the database table can be found under
