@@ -1,4 +1,4 @@
-# GWT_Project
+# Angular/Node App
 A trial project for GWT. Which consist of a rest-api and an angular app running on a node server.
 
 ## Prerequisites
@@ -13,10 +13,6 @@ You can also use the `/server/db_scripts/Export.sql` to create the table and imp
 1. `$ cd server`
 2. `$ npm install`
 3. `$ npm run prod`
-
-## What was completed
-**All tasks were completed**, however the only tasks which I thought could have been done better was:
-- Preventing SQL injections: Could have done better custom sanitization. Also could have used a library like sequalize which would help prevent injections.
 
 ## Server Architecture
 
